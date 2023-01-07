@@ -14,7 +14,11 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "splk-lab" {
-  name     = "SplunkTestLab"
+resource "azurerm_resource_group" "rg" {
+  name     = var.resource_group_name
   location = "eastus2"
+  tags = {
+    Environment = "Splunk Test"
+    User        = "mwhitener"
+  }
 }
